@@ -185,7 +185,7 @@
       <a href="#portfolio" data-link="portfolio">ポートフォリオ</a>
       <a href="#request" data-link="request">ご依頼について</a>
       <a href="#news" data-link="news">お知らせ</a>
-      <a href="#secret" data-link="secret">内緒の秘密基地</a>
+      <a href="himitsu/">内緒の秘密基地</a>
     </nav>
   </aside>
 
@@ -332,15 +332,6 @@
     <section class="page" id="news" data-title="お知らせ">
       <h2>お知らせ</h2>
       <div class="card"><ul class="list" id="newsList"></ul></div>
-    </section>
-
-    <!-- 内緒の秘密基地 -->
-    <section class="page" id="secret" data-title="内緒の秘密基地">
-      <h2>内緒の秘密基地</h2>
-      <div class="card center">
-        <p style="font-size:2rem;margin:0">🚧</p>
-        <p style="margin-bottom:0">現在秘密基地を建設中！<br>しばらくお待ちください！</p>
-      </div>
     </section>
   </main>
 
@@ -539,6 +530,7 @@
     var links = document.querySelectorAll('[data-link]');
     function show() {
       var id = location.hash.slice(1), card = null;
+      if (id === 'secret') { location.replace('himitsu/'); return; } // 旧URL(#secret)は秘密基地ページへ
       if (id.indexOf('work-') === 0) { card = document.getElementById(id); if (card) id = 'portfolio'; }
       var target = document.getElementById(id);
       if (!target || !target.classList.contains('page')) { id = 'home'; target = document.getElementById('home'); }
